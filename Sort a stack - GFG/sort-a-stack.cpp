@@ -51,8 +51,7 @@ public:
 you are required to complete the below method */
 void SortedStack :: sort()
 {
-  priority_queue<int> pq;
-  stack<int> s1;
+  priority_queue<int, vector<int>, greater<int>> pq;
   while(!s.empty())
    {
        pq.push(s.top());
@@ -60,13 +59,8 @@ void SortedStack :: sort()
    }  
    while(!pq.empty())
    {
-       s1.push(pq.top());
+       s.push(pq.top());
        pq.pop();
        
-   }
-   while(!s1.empty())
-   {
-       s.push(s1.top());
-       s1.pop();
    }
 }

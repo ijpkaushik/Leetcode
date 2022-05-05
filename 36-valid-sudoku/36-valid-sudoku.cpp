@@ -28,12 +28,12 @@ public:
                 if (board[i][j] == '.') continue;
                 
                 int curr = board[i][j] - '0';
-                if (rows[i].count(curr) || cols[j].count(curr) || blocks[(i/3)+(j/3)*3].count(curr)) 
+                if (rows[i].count(curr) || cols[j].count(curr) || blocks[(i/3)*3+(j/3)].count(curr)) 
                     return false;
                 
                 rows[i].insert(curr);
                 cols[j].insert(curr);
-                blocks[(i/3)+(j/3)*3].insert(curr);
+                blocks[(i/3)*3+(j/3)].insert(curr);
             }
         }
         

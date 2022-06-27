@@ -7,7 +7,7 @@ class Solution {
   public:
     // Function to detect cycle in a directed graph.
     
-    bool isCyclicUtil(int i, vector<int> adj[], int visited[], int recStack[]){
+    bool isCyclicUtil(int i, vector<int> adj[], bool visited[], bool recStack[]){
             visited[i]=true;
             recStack[i]=true;
             for(auto ptr : adj[i]){
@@ -22,9 +22,9 @@ class Solution {
     }
     
     bool isCyclic(int V, vector<int> adj[]) {
-        int visited[V],recStack [V];
-        memset(visited,0,sizeof visited);
-        memset(recStack ,0,sizeof recStack);
+        bool visited[V],recStack [V];
+        memset(visited, false, sizeof visited);
+        memset(recStack , false, sizeof recStack);
 
         for(int i=0; i<V; i++){
             if(!visited[i] && isCyclicUtil(i, adj, visited, recStack))
